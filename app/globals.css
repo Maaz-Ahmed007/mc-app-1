@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-section, .print-section * {
+    visibility: visible;
+  }
+  .print-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* Very light blue-gray */
+    --foreground: 215 25% 27%; /* Dark blue-gray for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 216 100% 55%; /* Main blue #1a6fff */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 16% 47%; /* Muted blue-gray #415A77 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 90%; /* Light blue-gray for hover */
+    --accent-foreground: 215 25% 27%;
+
+    --destructive: 0 84% 60%; /* Red #ef4444 */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 216 100% 55%;
+
+    --radius: 0.5rem;
+
+    /* Additional custom colors */
+    --success: 158 64% 40%; /* Green #10b981 */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 92% 50%; /* Amber #f59e0b */
+    --warning-foreground: 0 0% 100%;
+
+    --black: 215 28% 17%; /* Dark blue-black #1E2A3B */
+  }
+
+  .dark {
+    --background: 215 28% 17%; /* Dark blue-black */
+    --foreground: 210 40% 98%;
+
+    --card: 215 28% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 216 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 27%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 28% 27%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 28% 27%;
+    --input: 215 28% 27%;
+    --ring: 216 100% 55%;
+
+    /* Additional custom colors for dark mode */
+    --success: 158 64% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --black: 215 28% 17%; /* Same as background in dark mode */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .supports-\[backdrop-filter\]\:bg-background\/60 {
+    backdrop-filter: blur(12px);
+  }
+}
+
+@layer components {
+  .tab-trigger {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm;
+  }
+}

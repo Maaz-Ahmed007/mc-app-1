@@ -1,0 +1,11 @@
+{
+  "scripts": ["dist/server.js", "dist/.next/**/*.js"],
+  "assets": [
+    "dist/.next/**/*",
+    "dist/public/**/*",
+    "dist/data/**/*",
+    "dist/node_modules/.prisma/**/*",
+    "dist/node_modules/@prisma/client/**/*"
+  ],
+  "targets": ["node16-win-x64"]
+}
